@@ -49,4 +49,10 @@ export function activate(context: vscode.ExtensionContext) {
 		sprTerminal.sendText("git amend");
 		sprTerminal.show(true);
 	}));
+
+	context.subscriptions.push(vscode.commands.registerCommand('vscodeGitSpr.Rebase', () => {
+		if (sprTerminal === null) sprTerminal = vscode.window.createTerminal(terminalName);
+		sprTerminal.sendText("git rebase");
+		sprTerminal.show(true);
+	}));
 }
